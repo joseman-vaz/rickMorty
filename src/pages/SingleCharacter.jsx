@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Character from "../components/character";
 import Location from "../components/Location";
@@ -9,6 +9,7 @@ import RickMortyImage from "../assets/Rick_and_Morty.svg.png";
 
 const SingleCharacter = () => {
   const { characterId } = useParams();
+  const navigate = useNavigate();
   const [character, setCharacter] = useState(null);
   const [episodeData, setEpisodeData] = useState([]);
 
@@ -32,11 +33,12 @@ const SingleCharacter = () => {
         setEpisodeData(episodeData);
       } catch (error) {
         console.error("Error fetching character data", error);
+        navigate("/");
       }
     };
 
     fetchCharacter();
-  }, [characterId]);
+  }, [characterId, navigate]);
 
   if (!character) {
     return <div>Loading...</div>;
