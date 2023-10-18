@@ -43,15 +43,20 @@ const SingleCharacter = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center py-4">
-      <img src={RickMortyImage} alt="RickMortyImage" className="w-96 mb-8" />
+    <div className="flex flex-col min-h-screen items-center justify-center">
+      <img
+        src={RickMortyImage}
+        alt="RickMortyImage"
+        className="w-96 mb-8 mt-2"
+      />
       <div className="container mx-auto flex flex-col items-center space-y-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl">
           <div className="flex flex-col space-y-8">
             <Character character={character} />
             <Location location={character.location} />
           </div>
-          <div className="overflow-auto max-h-96">
+
+          <div className="overflow-y-scroll max-h-96 border-solid border-2 rounded-md shadow-lg">
             <Episodes episodes={episodeData} />
           </div>
         </div>

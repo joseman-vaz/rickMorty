@@ -43,8 +43,12 @@ const Home = () => {
 
   return (
     <>
-      <img src={RickMortyImage} alt="RickMortyImage" />
       <div className="home-page container mx-auto py-6">
+        <img
+          src={RickMortyImage}
+          alt="RickMortyImage"
+          className="w-96 mb-8 mt-2 mx-auto"
+        />
         <h1 className="text-gray-700 text-3xl font-semibold mb-6">
           Rick and Morty Characters
         </h1>
